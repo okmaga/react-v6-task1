@@ -1,0 +1,31 @@
+.App {
+}
+
+.navbar {
+    width: 100%;
+    background-color: #24325F99;
+    color: white;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.navbar-list {
+    display: flex;
+    gap: 1.5rem;
+    list-style-type: none;
+    justify-content: center;
+}
+
+.navbar-list-item {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
+
+.navbar-list-item:hover {
+    background-color: #24325FFF;
+    box-shadow: 0px 15px 10px -15px #24325FFF;
+}
+
+.home {
+    height:150vh;
+}
