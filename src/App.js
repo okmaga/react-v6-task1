@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import {Routes, Route, NavLink, Navigate} from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Characters from "./pages/Characters";
@@ -34,6 +34,7 @@ function App() {
           </Route>
           <Route path="/locations" element={<Locations />} />
           <Route path="/episodes" element={<Episodes />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </>
