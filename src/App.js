@@ -5,6 +5,8 @@ import Characters from "./pages/Characters";
 import Locations from "./pages/Locations";
 import Episodes from "./pages/Episodes";
 import SingleCharacter from "./pages/SingleCharacter";
+import SingleLocation from "./pages/SingleLocation";
+import SingleEpisode from "./pages/SingleEpisode";
 
 function App() {
   return (
@@ -32,8 +34,14 @@ function App() {
             <Route index element={<Characters />} />
             <Route path=":id" element={<SingleCharacter />} />
           </Route>
-          <Route path="/locations" element={<Locations />} />
-          <Route path="/episodes" element={<Episodes />} />
+          <Route path="/locations" >
+            <Route index element={<Locations />} />
+            <Route path=":id" element={<SingleLocation />} />
+          </Route>
+          <Route path="/episodes" >
+            <Route index element={<Episodes />} />
+            <Route path=":id" element={<SingleEpisode />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>

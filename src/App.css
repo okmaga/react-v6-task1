@@ -40,8 +40,8 @@
     justify-content: center;
 }
 
-.navbar-list-item {
-    transition: all 0.3s ease;
+.navbar-list-item a {
+    transition: all 0.2s ease;
 }
 
 .navbar-list-item:hover a {
@@ -108,6 +108,8 @@ main {
 
 h1 {
     font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 .single-char-card {
@@ -131,4 +133,47 @@ h1 {
     max-width: 100%;
     max-height: 100%;
     display: block;
+}
+
+/*------------- locations -------------*/
+.grid-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+}
+
+.grid-row {
+    display:flex;
+}
+
+.grid-cell {
+    border: 1px solid grey
+}
+
+table {
+    margin-top: 2rem;
+}
+table, tr, th, td{
+    text-align: left;
+    font-size: 1.2rem;
+    border: none;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.5rem;
+    margin:auto;
+}
+
+th > span {
+    color:lightgray;
+    vertical-align: middle;
+}
+
+tr {
+    cursor: pointer
+}
+tbody tr:hover {
+    background-color: #eee
 }
