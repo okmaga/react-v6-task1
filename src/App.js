@@ -7,6 +7,9 @@ import Episodes from "./pages/Episodes";
 import SingleCharacter from "./pages/SingleCharacter";
 import SingleLocation from "./pages/SingleLocation";
 import SingleEpisode from "./pages/SingleEpisode";
+import Login from "./pages/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import NavProfile from "./components/NavProfile";
 
 function App() {
   return (
@@ -25,23 +28,27 @@ function App() {
           <li className="navbar-list-item">
             <NavLink to="/episodes">Episodes</NavLink>
           </li>
+          <li className="navbar-list-item">
+            <NavProfile />
+          </li>
         </ul>
       </nav>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/characters" >
-            <Route index element={<Characters />} />
-            <Route path=":id" element={<SingleCharacter />} />
+            <Route index element={<PrivateRoute><Characters /></PrivateRoute>} />
+            <Route path=":id" element={<PrivateRoute><SingleCharacter /></PrivateRoute>} />
           </Route>
           <Route path="/locations" >
-            <Route index element={<Locations />} />
-            <Route path=":id" element={<SingleLocation />} />
+            <Route index element={<PrivateRoute><Locations /> </PrivateRoute>} />
+            <Route path=":id" element={<PrivateRoute><SingleLocation /></PrivateRoute> } />
           </Route>
           <Route path="/episodes" >
-            <Route index element={<Episodes />} />
-            <Route path=":id" element={<SingleEpisode />} />
+            <Route index element={<PrivateRoute><Episodes /> </PrivateRoute>} />
+            <Route path=":id" element={<PrivateRoute><SingleEpisode /></PrivateRoute>} />
           </Route>
+          <Route path="/login" element={<Login />}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
