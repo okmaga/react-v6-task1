@@ -1,7 +1,7 @@
 import React from 'react';
 import {ArrowUpward, ArrowDownward} from "@mui/icons-material";
 
-const Table = ({data, onSort, sortBy, onClick}) => {
+const Table = ({data, onSort, sortBy, onClick }) => {
   const columns = Object.keys(data[0]);
   const renderContent = (item, col) => {
     if (col === "created" || col === "air_date") {
@@ -17,6 +17,7 @@ const Table = ({data, onSort, sortBy, onClick}) => {
   }
 
   const handleClick = (location) => {
+    console.log(location);
     onClick(location);
   };
 
@@ -56,28 +57,36 @@ const Table = ({data, onSort, sortBy, onClick}) => {
     <table>
       <thead>
         <tr>
-          {columns.map(col =>
-            <th
+          {columns.map(col => {
+            if (col === "characters" | col === "url" | col === "residents") {
+              return null;
+            }
+            return <th
               key={col}
               onClick={() => handleSort(col)}
             >
               {col}
               <span>{renderSortArrow(col)}</span>
-            </th>)}
+            </th> }
+          )}
         </tr>
       </thead>
       <tbody>
-      {Object.values(data).map(item => {
+      {Object.values(data).map((item, index) => {
         return (
           <tr
             key={item.id || item.name}
             onClick={() => handleClick(item)}
           >
             {
-              columns.map(col => (
-              <td key={col}>
-                {renderContent(item, col)}
-              </td>))
+              columns.map(col => {
+                if (col === "characters" | col === "url" | col === "residents") {
+                  return null;
+                }
+                return <td key={col}>
+                  {renderContent(item, col)}
+                </td>
+              })
             }
           </tr>
         )
